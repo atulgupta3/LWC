@@ -1,0 +1,24 @@
+----HTML File ---------
+
+<template>
+    <c-child-comp name="Ron" roll-num="EC004" mob-num=56789 address={address} ></c-child-comp>
+    University Name is {universityName}.
+
+    
+</template>
+
+
+-----JS File-----
+
+import { LightningElement } from 'lwc';
+
+export default class ParentComp extends LightningElement {
+  universityName = "Hogwarts"
+  address ={
+   street : 6,
+   area : 'WDC',
+   enrolled : false
+  }
+
+  
+}
