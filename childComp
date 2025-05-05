@@ -1,0 +1,22 @@
+HTML File
+
+<template>
+  <div>  
+  Hi My name is {name}, roll Number is {rollNum} , mobile number is {mobNum} and area is {address.area} {address.street} {address.enrolled}.
+  </div>
+</template>
+
+JS file
+
+import { LightningElement , api} from 'lwc';
+
+export default class ChildComp extends LightningElement {
+  @api name = 'Harry Potter'
+  @api rollNum = 'EC001'
+  @api mobNum = 6599689
+  @api address = {
+   street : 1,
+   area : 'NYC',
+   enrolled : true
+  }
+}
