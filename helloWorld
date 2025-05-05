@@ -1,0 +1,42 @@
+---HTML file -----
+
+<template>
+    Hello {name} 
+    How are you?
+
+
+    <lightning-card class="slda-card">
+        <lightning-input value={currentName} onchange={nameUpdate} type="text" ></lightning-input>
+      </lightning-card>
+  
+      <p> value type is : {currentName}</p>
+</template>
+
+
+
+-------- JS file ---------------
+
+      import { LightningElement } from 'lwc';
+
+export default class HelloWorld extends LightningElement {
+
+  name = 'Atul';
+
+  currentName;
+
+  nameUpdate(event){
+    this.currentName=event.target.value;
+  }
+
+  _minutesWatched = (this.totalLessonWatched * 10);
+
+  get minutesWatched(){
+    return this._minutesWatched;
+  }
+  set minutesWatched(value){
+    this._minutesWatched = value < 1000 ? value : 5000;
+  }
+  handleWatchChange(event){
+    this.minutesWatched = parseInt(event.target.value, 10);
+  }
+}
