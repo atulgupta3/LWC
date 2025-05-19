@@ -1,0 +1,72 @@
+<template>
+  <div class="slds-box slds-theme_default">
+      <h2>My To-Do List</h2>
+
+      <div class="slds-grid slds-gutters slds-wrap">
+          <div class="slds-col slds-size_10-of-12">
+              <lightning-input
+                  type="text"
+                  label="New Task"
+                  value={newTask}
+                  onchange={handleInputChange}
+                  placeholder="Add a new task..."
+              ></lightning-input>
+          </div>
+          <div class="slds-col slds-size_2-of-12 slds-align-middle">
+              <lightning-button label="Add" onclick={addTask}></lightning-button>
+          </div>
+      </div>
+
+      <template if:true={incompleteTasks.length}>
+          <h3>Pending Tasks</h3>
+          <ul class="slds-list_unordered">
+              <template for:each={incompleteTasks} for:item="task">
+                  <li key={task.id} class="slds-list__item">
+                      <lightning-input
+                          type="checkbox"
+                          label={task.name}
+                          checked={task.completed}
+                          data-id={task.id}
+                          onchange={toggleComplete}
+                      ></lightning-input>
+                      <lightning-button-icon
+                          icon-name="utility:delete"
+                          alternative-text="Delete"
+                          data-id={task.id}
+                          onclick={deleteTask}
+                          class="slds-float_right"
+                      ></lightning-button-icon>
+                  </li>
+              </template>
+          </ul>
+      </template>
+
+      <template if:true={completedTasks.length}>
+          <h3>Completed Tasks</h3>
+          <ul class="slds-list_unordered">
+              <template for:each={completedTasks} for:item="task">
+                  <li key={task.id} class="slds-list__item slds-text-strikethrough">
+                      <lightning-input
+                          type="checkbox"
+                          label={task.name}
+                          checked={task.completed}
+                          data-id={task.id}
+                          onchange={toggleComplete}
+                      ></lightning-input>
+                      <lightning-button-icon
+                          icon-name="utility:delete"
+                          alternative-text="Delete"
+                          data-id={task.id}
+                          onclick={deleteTask}
+                          class="slds-float_right"
+                      ></lightning-button-icon>
+                  </li>
+              </template>
+          </ul>
+      </template>
+
+      <template if:false={tasks.length}>
+          <p>No tasks yet. Add some!</p>
+      </template>
+  </div>
+</template>

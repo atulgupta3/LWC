@@ -1,0 +1,15 @@
+<template>
+    Hello {name}, Good Morning Ta
+    <lightning-card class="slda-card">
+        <lightning-input value={currentName} onchange={nameUpdate} type="text" ></lightning-input>
+      </lightning-card>
+  
+      <p> value type : {currentName}</p>
+
+      <lightning-input type="checkbox" onchange={handleChange}>
+      </lightning-input>
+
+      <template if:true={showMe}>I am visible</template>
+      
+      <template if:false={showMe}>I am not visible BKL</template>
+</template>

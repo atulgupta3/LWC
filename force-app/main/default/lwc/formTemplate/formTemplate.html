@@ -1,0 +1,51 @@
+<template>
+  <lightning-card title="Sample Form" icon-name="custom:custom63">
+      <div class="slds-p-around_medium">
+          <lightning-input label="First Name" value={firstName} onchange={handleInputChange} data-id="firstName"></lightning-input>
+          <lightning-input label="Last Name" value={lastName} onchange={handleInputChange} data-id="lastName"></lightning-input>
+          <lightning-input label="Mobile Number" value={mobNum} onchange={handleInputChange} data-id="mobNum"></lightning-input>
+          <lightning-input type="email" label="Email" value={email} onchange={handleInputChange} data-id="email"></lightning-input>
+          <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+      </div>
+      <div style="padding:10px">
+        <table border="1">
+            <tr>
+                <td>First Name</td>
+                <td>{firstName}</td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>{lastName}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{email}</td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td>{mobNum}</td>
+            </tr>
+        </table>
+    </div>
+  </lightning-card>
+
+  
+  <lightning-card>
+    <diV>
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered" >
+        <tr> 
+          <td>Student Name</td>
+          <td>Class</td>
+          <td>Fee</td>
+        </tr>
+        <template for:each={students} for:item="stu" >
+          <tr key={stu.Id} class="slds-line-height_reset">
+            <td>{stu.Name}</td>
+            <td>{stu.Class}</td>
+            <td>{stu.Fee}</td>
+          </tr>
+        </template>
+      </table>
+    </diV>
+  </lightning-card>
+</template>

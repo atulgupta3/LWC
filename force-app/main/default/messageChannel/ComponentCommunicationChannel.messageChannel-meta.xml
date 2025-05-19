@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageChannel>
+  <description>Channel for communication between compA and compB</description>
+  <isExposed>true</isExposed>
+  <masterLabel>Component Communication Channel</masterLabel>
+</MessageChannel>
